@@ -1,15 +1,21 @@
 .App {
-  background-color: #282c34;
   min-height: 100vh;
-  text-align: center;
   font-size: calc(10px + 2vmin);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  color: gray;
 }
 
 .App-header {
   align-items: center;
   color: white;
   margin: 20px;
+}
+.calender-and-input {
+  display: flex;
+  justify-content: space-around;
+}
+.inputs-submit-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }

@@ -15,7 +15,7 @@ export function getWeekdaysInMonth() {
   const weekdays = [];
   for (let i = 1; i <= days; i++) {
     if (isWeekday(year, month, i + 1)) {
-      weekdays.push(new Date(`${month + 1}, ${i}, ${year}`));
+      weekdays.push({ date: i, month: month + 1, year });
     }
   }
   return weekdays;

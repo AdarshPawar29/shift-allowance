@@ -4,6 +4,7 @@ import "react-calendar/dist/Calendar.css";
 import { getWeekdaysInMonth } from "../utility/findWeekdayDates";
 import InformationInput from "./InformationInput";
 import SelectedDates from "./SelectedDates";
+import { isWeekday } from "../utility/findWeekdayDates";
 
 function CalendarDatePicker() {
   const [weekDays, setWeekDays] = useState(getWeekdaysInMonth());
@@ -16,7 +17,12 @@ function CalendarDatePicker() {
   const onChange = (event) => {
     const selectedDate = event.getDate();
     if (weekDays.findIndex((item) => item.date === selectedDate) >= 0) {
-      alert("date already in table!");
+      alert("Date already selected in table!");
+    }
+    if (isWeekday(event.getFullYear(), event.getMonth(), selectedDate)) {
+      alert(
+        "It's weekend => {No work: so can't pay;( we want you to enjoy:) }"
+      );
     } else {
       const updatedDays = [
         {

@@ -1,4 +1,4 @@
-function isWeekday(year, month, day) {
+export function isWeekday(year, month, day) {
   var weekday = new Date(year, month, day).getDay();
   return weekday !== 1 && weekday !== 0 ? true : false;
 }

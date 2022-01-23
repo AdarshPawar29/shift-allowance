@@ -1,6 +1,6 @@
 export function isWeekday(year, month, day) {
   var weekday = new Date(year, month, day).getDay();
-  return weekday !== 1 && weekday !== 0 ? true : false;
+  return weekday !== 6 && weekday !== 0 ? true : false;
 }
 
 function daysInMonth(month, year) {
@@ -14,7 +14,7 @@ export function getWeekdaysInMonth() {
   const days = daysInMonth(month, year);
   const weekdays = [];
   for (let i = 1; i <= days; i++) {
-    if (isWeekday(year, month, i + 1)) {
+    if (isWeekday(year, month, i)) {
       weekdays.push({ date: i, month: month + 1, year });
     }
   }

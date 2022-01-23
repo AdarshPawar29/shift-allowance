@@ -10,16 +10,13 @@ function CalendarDatePicker() {
   const [weekDays, setWeekDays] = useState(getWeekdaysInMonth());
   const [info, setInfo] = useState(null);
 
-  useEffect(() => {
-    console.log(weekDays);
-  }, [weekDays]);
-
   const onChange = (event) => {
     const selectedDate = event.getDate();
     if (weekDays.findIndex((item) => item.date === selectedDate) >= 0) {
       alert("Date already selected in table!");
-    }
-    if (isWeekday(event.getFullYear(), event.getMonth(), selectedDate)) {
+    } else if (
+      !isWeekday(event.getFullYear(), event.getMonth(), selectedDate)
+    ) {
       alert(
         "It's weekend => {No work: so can't pay;( we want you to enjoy:) }"
       );

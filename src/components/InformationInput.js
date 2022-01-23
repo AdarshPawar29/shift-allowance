@@ -7,6 +7,8 @@ function InformationInput({ getInfo }) {
     name: "",
     email: "",
     projectName: "",
+    projectCode: "",
+    allowanceAmount: "",
   });
   const handleSubmit = () => {
     getInfo(value);
@@ -29,10 +31,25 @@ function InformationInput({ getInfo }) {
               setValue({ ...value, email: e.target.value });
             }}
           />
+          <br />
           <label>What's your project name? </label>{" "}
           <input
             onChange={(e) => {
               setValue({ ...value, projectName: e.target.value });
+            }}
+          />
+          <br />
+          <label>What's your project code? </label>{" "}
+          <input
+            onChange={(e) => {
+              setValue({ ...value, projectCode: e.target.value });
+            }}
+          />
+          <br />
+          <label>What's your Allowance Amount (INR)? </label>{" "}
+          <input
+            onChange={(e) => {
+              setValue({ ...value, allowanceAmount: e.target.value });
             }}
           />
         </Card.Body>

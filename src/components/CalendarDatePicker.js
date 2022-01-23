@@ -13,7 +13,7 @@ function CalendarDatePicker() {
   const onChange = (event) => {
     const selectedDate = event.getDate();
     if (weekDays.findIndex((item) => item.date === selectedDate) >= 0) {
-      alert("Date already selected in table!");
+      alert("Date already selected in table!!");
     } else if (
       !isWeekday(event.getFullYear(), event.getMonth(), selectedDate)
     ) {

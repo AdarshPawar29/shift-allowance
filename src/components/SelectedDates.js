@@ -1,21 +1,8 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import ExportExcel from "./ExcelExport";
-
+import { getDayOfWeek, monthNames } from "../utility/findWeekdayDates";
 function SelectedDates({ weekDays, removeDateFromTable, info }) {
-  const days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  const getDayOfWeek = (date, month, year) => {
-    const d = new Date(`${month}/${date}/${year}`);
-    return days[d.getDay()];
-  };
   return (
     <div className="container-table">
       <h3 className="p-3 text-center">List of days</h3>
@@ -29,7 +16,7 @@ function SelectedDates({ weekDays, removeDateFromTable, info }) {
             <th>Allowance Type</th>
             <th>Tmp for notes (validation)</th>
             <th>Frequency</th>
-            <th>Number of Days</th>
+            <th>No. of Days</th>
             <th>For Date (dd/mm/yyyy)</th>
             <th>Day</th>
             <th>From Time</th>
@@ -47,7 +34,7 @@ function SelectedDates({ weekDays, removeDateFromTable, info }) {
                 <td>{info.projectCode}</td>
                 <td>{info.projectName}</td>
                 <td>Shift Allowance</td>
-                <td></td>
+                <td>{monthNames[date.month - 1]} allowances</td>
                 <td>Daily</td>
                 <td>1</td>
                 <td>
@@ -69,7 +56,11 @@ function SelectedDates({ weekDays, removeDateFromTable, info }) {
             ))}
         </tbody>
       </table>
-      <ExportExcel excelData={weekDays} fileName={"shift allowances"} />
+      <ExportExcel
+        excelData={weekDays}
+        fileName={"shift allowances"}
+        info={info}
+      />
     </div>
   );
 }

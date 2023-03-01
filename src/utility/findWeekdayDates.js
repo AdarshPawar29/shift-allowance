@@ -20,3 +20,24 @@ export function getWeekdaysInMonth() {
   }
   return weekdays;
 }
+const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+export const getDayOfWeek = (date, month, year) => {
+  const d = new Date(`${month}/${date}/${year}`);
+  return days[d.getDay()];
+};
+
+export const monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];

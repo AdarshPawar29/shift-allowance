@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/shift-allowance/static/css/main.a2bd0a4e.css",
+    "main.js": "/shift-allowance/static/js/main.7b33837c.js",
+    "static/js/666.18e308c8.chunk.js": "/shift-allowance/static/js/666.18e308c8.chunk.js",
+    "index.html": "/shift-allowance/index.html",
+    "main.a2bd0a4e.css.map": "/shift-allowance/static/css/main.a2bd0a4e.css.map",
+    "main.7b33837c.js.map": "/shift-allowance/static/js/main.7b33837c.js.map",
+    "666.18e308c8.chunk.js.map": "/shift-allowance/static/js/666.18e308c8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a2bd0a4e.css",
+    "static/js/main.7b33837c.js"
+  ]
+}

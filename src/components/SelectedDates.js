@@ -29,7 +29,7 @@ function SelectedDates({ weekDays, removeDateFromTable, info }) {
             <th>Allowance Type</th>
             <th>Tmp for notes (validation)</th>
             <th>Frequency</th>
-            <th>No. of Days</th>
+            <th>Number of Days</th>
             <th>For Date (dd/mm/yyyy)</th>
             <th>Day</th>
             <th>From Time</th>

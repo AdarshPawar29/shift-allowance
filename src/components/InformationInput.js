@@ -9,6 +9,8 @@ function InformationInput({ getInfo }) {
     projectName: "",
     projectCode: "",
     allowanceAmount: "",
+    fromTime: "",
+    toTime: "",
   });
   const handleSubmit = () => {
     getInfo(value);
@@ -23,6 +25,7 @@ function InformationInput({ getInfo }) {
             onChange={(e) => {
               setValue({ ...value, name: e.target.value });
             }}
+            autoComplete="on"
           />
           <br />
           <label>What's your email? </label>{" "}
@@ -30,6 +33,7 @@ function InformationInput({ getInfo }) {
             onChange={(e) => {
               setValue({ ...value, email: e.target.value });
             }}
+            autoComplete="on"
           />
           <br />
           <label>What's your project name? </label>{" "}
@@ -37,6 +41,7 @@ function InformationInput({ getInfo }) {
             onChange={(e) => {
               setValue({ ...value, projectName: e.target.value });
             }}
+            autoComplete="on"
           />
           <br />
           <label>What's your project code? </label>{" "}
@@ -44,6 +49,7 @@ function InformationInput({ getInfo }) {
             onChange={(e) => {
               setValue({ ...value, projectCode: e.target.value });
             }}
+            autoComplete="on"
           />
           <br />
           <label>What's your Allowance Amount (INR)? </label>{" "}
@@ -51,6 +57,25 @@ function InformationInput({ getInfo }) {
             onChange={(e) => {
               setValue({ ...value, allowanceAmount: e.target.value });
             }}
+            autoComplete="on"
+          />
+          <br />
+          <label>From Time </label>{" "}
+          <input
+            onChange={(e) => {
+              setValue({ ...value, fromTime: e.target.value });
+            }}
+            autoComplete="on"
+            type={"time"}
+          />
+          <br />
+          <label>To Time </label>{" "}
+          <input
+            onChange={(e) => {
+              setValue({ ...value, toTime: e.target.value });
+            }}
+            autoComplete="on"
+            type={"time"}
           />
         </Card.Body>
       </Card>

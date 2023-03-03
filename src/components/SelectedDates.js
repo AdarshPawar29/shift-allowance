@@ -41,8 +41,8 @@ function SelectedDates({ weekDays, removeDateFromTable, info }) {
                   {date.date}/{date.month}/{date.year}
                 </td>
                 <td>{getDayOfWeek(date.date, date.month, date.year)}</td>
-                <td>2PM IST</td>
-                <td>11PM IST</td>
+                <td>{info.fromTime}</td>
+                <td>{info.toTime}</td>
                 <td>{info.allowanceAmount}</td>
                 <td>
                   <Button

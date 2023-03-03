@@ -34,8 +34,8 @@ const ExportExcel = ({ excelData, fileName, info }) => {
     const ws = XLSX.utils.json_to_sheet(resultJson());
     const excelBuffer = XLSX.write(
       {
-        Sheets: { data: ws },
-        SheetNames: ["data"],
+        Sheets: { Main: ws },
+        SheetNames: ["Main"],
       },
       { bookType: "xlsx", type: "array" }
     );

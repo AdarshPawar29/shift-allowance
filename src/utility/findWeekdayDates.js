@@ -8,7 +8,7 @@ function daysInMonth(month, year) {
 }
 
 export function getWeekdaysInMonth() {
-  // all the dates from 15 to 16
+  // all the dates from 15 to 16 formate
   const d = new Date();
   const weekdays = [];
   if (d.getDate() < 15) {

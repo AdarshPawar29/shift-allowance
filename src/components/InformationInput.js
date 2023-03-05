@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Card, Button } from "react-bootstrap";
 
-function InformationInput({ getInfo }) {
+function InformationInput({ getInfo, handleSubmit }) {
   const [value, setValue] = useState({
     name: "",
     email: "",
@@ -11,8 +11,10 @@ function InformationInput({ getInfo }) {
     allowanceAmount: "",
     fromTime: "",
     toTime: "",
+    startDate: "",
   });
-  const handleSubmit = () => {
+  const handleSubmitBtn = () => {
+    handleSubmit();
     getInfo(value);
   };
   return (
@@ -77,9 +79,25 @@ function InformationInput({ getInfo }) {
             autoComplete="on"
             type={"time"}
           />
+          <label>
+            Start Date (Optional, it will take last months 15 to this month 16
+            by default){" "}
+          </label>{" "}
+          <input
+            id="startDate"
+            onChange={(e) => {
+              setValue({ ...value, startDate: e.target.value });
+            }}
+            autoComplete="on"
+            type={"date"}
+          />
         </Card.Body>
       </Card>
-      <Button variant="outline-primary" className="mt-2" onClick={handleSubmit}>
+      <Button
+        variant="outline-primary"
+        className="mt-2"
+        onClick={handleSubmitBtn}
+      >
         Click here to submit
       </Button>
     </div>

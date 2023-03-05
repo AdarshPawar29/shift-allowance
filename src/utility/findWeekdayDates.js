@@ -11,7 +11,43 @@ export function getWeekdaysInMonth() {
   // all the dates from 15 to 16 formate
   const d = new Date();
   const weekdays = [];
-  if (d.getDate() < 15) {
+  let selectedDate = document.getElementById("startDate");
+
+  selectedDate = selectedDate ? new Date(selectedDate.value) : false;
+
+  if (!isNaN(selectedDate.getTime())) {
+    if (selectedDate.getDate() < 15) {
+      const month = selectedDate.getMonth() - 1;
+      const year = selectedDate.getFullYear();
+      let days = daysInMonth(month, year);
+      for (let i = 15; i <= days; i++) {
+        if (isWeekday(year, month, i)) {
+          weekdays.push({ date: i, month: month + 1, year });
+        }
+      }
+      for (let i = 1; i <= 16; i++) {
+        if (isWeekday(year, month + 1, i)) {
+          weekdays.push({ date: i, month: month + 1 + 1, year });
+        }
+      }
+    }
+    if (selectedDate.getDate() >= 15) {
+      let month = selectedDate.getMonth();
+      const year = selectedDate.getFullYear();
+      let days = daysInMonth(month, year);
+      for (let i = 15; i <= days; i++) {
+        if (isWeekday(year, month, i)) {
+          weekdays.push({ date: i, month: month + 1, year });
+        }
+      }
+      month = d.getMonth() + 1;
+      for (let i = 1; i <= 16; i++) {
+        if (isWeekday(year, month, i)) {
+          weekdays.push({ date: i, month: month + 1, year });
+        }
+      }
+    }
+  } else {
     const month = d.getMonth() - 1;
     const year = d.getFullYear();
     let days = daysInMonth(month, year);
@@ -20,27 +56,9 @@ export function getWeekdaysInMonth() {
         weekdays.push({ date: i, month: month + 1, year });
       }
     }
-    days = daysInMonth(month + 1, year);
     for (let i = 1; i <= 16; i++) {
       if (isWeekday(year, month + 1, i)) {
         weekdays.push({ date: i, month: month + 1 + 1, year });
-      }
-    }
-  }
-  if (d.getDate() >= 15) {
-    let month = d.getMonth();
-    const year = d.getFullYear();
-    let days = daysInMonth(month, year);
-    for (let i = 15; i <= days; i++) {
-      if (isWeekday(year, month, i)) {
-        weekdays.push({ date: i, month: month + 1, year });
-      }
-    }
-    month = d.getMonth() + 1;
-    days = daysInMonth(month, year);
-    for (let i = 1; i <= 16; i++) {
-      if (isWeekday(year, month, i)) {
-        weekdays.push({ date: i, month: month + 1, year });
       }
     }
   }

@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export function isWeekday(year, month, day) {
   var weekday = new Date(year, month, day).getDay();
   return weekday !== 6 && weekday !== 0 ? true : false;
@@ -7,6 +9,21 @@ function daysInMonth(month, year) {
   return 32 - new Date(year, month, 32).getDate();
 }
 
+let enumerateDaysBetweenDates = function (startDate, endDate) {
+  let dates = [];
+
+  while (startDate.isSameOrBefore(endDate)) {
+    let month = startDate.get("month") + 1;
+    let year = startDate.get("year");
+    // Filter weekend days
+    if (startDate.isoWeekday() !== 6 && startDate.isoWeekday() !== 7) {
+      dates.push({date: startDate.get("date"), month: month, year});
+    }
+    startDate.add(1, "days");
+  }
+  return dates;
+};
+
 export function getWeekdaysInMonth() {
   // all the dates from 15 to 16 formate
   const d = new Date();
@@ -15,54 +32,16 @@ export function getWeekdaysInMonth() {
 
   selectedDate = selectedDate ? new Date(selectedDate.value) : false;
 
-  if (!isNaN(selectedDate.getTime())) {
-    if (selectedDate.getDate() < 15) {
-      const month = selectedDate.getMonth() - 1;
-      const year = selectedDate.getFullYear();
-      let days = daysInMonth(month, year);
-      for (let i = 15; i <= days; i++) {
-        if (isWeekday(year, month, i)) {
-          weekdays.push({ date: i, month: month + 1, year });
-        }
-      }
-      for (let i = 1; i <= 16; i++) {
-        if (isWeekday(year, month + 1, i)) {
-          weekdays.push({ date: i, month: month + 1 + 1, year });
-        }
-      }
-    }
-    if (selectedDate.getDate() >= 15) {
-      let month = selectedDate.getMonth();
-      const year = selectedDate.getFullYear();
-      let days = daysInMonth(month, year);
-      for (let i = 15; i <= days; i++) {
-        if (isWeekday(year, month, i)) {
-          weekdays.push({ date: i, month: month + 1, year });
-        }
-      }
-      month = d.getMonth() + 1;
-      for (let i = 1; i <= 16; i++) {
-        if (isWeekday(year, month, i)) {
-          weekdays.push({ date: i, month: month + 1, year });
-        }
-      }
-    }
-  } else {
-    const month = d.getMonth() - 1;
-    const year = d.getFullYear();
-    let days = daysInMonth(month, year);
-    for (let i = 15; i <= days; i++) {
-      if (isWeekday(year, month, i)) {
-        weekdays.push({ date: i, month: month + 1, year });
-      }
-    }
-    for (let i = 1; i <= 16; i++) {
-      if (isWeekday(year, month + 1, i)) {
-        weekdays.push({ date: i, month: month + 1 + 1, year });
-      }
-    }
-  }
-  return weekdays;
+  let startDate = moment(selectedDate, "DD/MM/YYYY");
+
+  let endDate = moment({
+    year: startDate.get("year"),
+    month: startDate.get("month") + 1,
+    day: 15
+  });
+
+  const workingDays = enumerateDaysBetweenDates(startDate,endDate);
+  return workingDays;
 }
 const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 

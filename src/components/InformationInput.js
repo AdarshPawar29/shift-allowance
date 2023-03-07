@@ -76,7 +76,7 @@ function InformationInput({ getInfo, handleSubmit }) {
               value={value.allowanceAmount}
             />
           </div>
-          <label>From Time (02:00 PM default) </label>{" "}
+          <label>From Time (01:00 PM default) </label>{" "}
           <div class="input-group mb-3">
             <input
               onChange={(e) => {
@@ -86,7 +86,7 @@ function InformationInput({ getInfo, handleSubmit }) {
               value={value.fromTime}
             />
           </div>
-          <label>To Time (11:00 PM default)</label>{" "}
+          <label>To Time (10:00 PM default)</label>{" "}
           <div class="input-group mb-3">
             <input
               onChange={(e) => {
@@ -97,7 +97,7 @@ function InformationInput({ getInfo, handleSubmit }) {
             />
           </div>
           <label>
-            Start Date (Optional, it will take last months 15 to this month 16
+            Start Date (Optional, it will take last months 16 to this month 15
             by default){" "}
           </label>{" "}
           <div class="input-group mb-3">
@@ -117,7 +117,7 @@ function InformationInput({ getInfo, handleSubmit }) {
         className="mt-2"
         onClick={handleSubmitBtn}
       >
-        Click here to submit
+        Generate Data
       </Button>
     </div>
   );

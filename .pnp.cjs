@@ -32,6 +32,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:ae88d71f4cad5af06985b71f0fe07b65cf76d28a4ea59e385242a29ce9ca7ead300cdbae9ba7a156eef127a963240257e81b442f6d8bbe8bd71f3a4fc7e853a4#npm:12.1.5"],\
             ["@testing-library/user-event", "virtual:ae88d71f4cad5af06985b71f0fe07b65cf76d28a4ea59e385242a29ce9ca7ead300cdbae9ba7a156eef127a963240257e81b442f6d8bbe8bd71f3a4fc7e853a4#npm:13.5.0"],\
             ["bootstrap", "virtual:ae88d71f4cad5af06985b71f0fe07b65cf76d28a4ea59e385242a29ce9ca7ead300cdbae9ba7a156eef127a963240257e81b442f6d8bbe8bd71f3a4fc7e853a4#npm:5.2.3"],\
+            ["bootstrap-icons", "npm:1.10.3"],\
             ["eslint-config-react", "npm:1.1.7"],\
             ["eslint-config-react-app", "virtual:ae88d71f4cad5af06985b71f0fe07b65cf76d28a4ea59e385242a29ce9ca7ead300cdbae9ba7a156eef127a963240257e81b442f6d8bbe8bd71f3a4fc7e853a4#npm:7.0.1"],\
             ["file-saver", "npm:2.0.5"],\
@@ -6433,6 +6434,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packagePeers": [\
             "@popperjs/core",\
             "@types/popperjs__core"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["bootstrap-icons", [\
+        ["npm:1.10.3", {\
+          "packageLocation": "./.yarn/cache/bootstrap-icons-npm-1.10.3-d595a95ca4-bef7f83ce0.zip/node_modules/bootstrap-icons/",\
+          "packageDependencies": [\
+            ["bootstrap-icons", "npm:1.10.3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -16347,6 +16357,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:ae88d71f4cad5af06985b71f0fe07b65cf76d28a4ea59e385242a29ce9ca7ead300cdbae9ba7a156eef127a963240257e81b442f6d8bbe8bd71f3a4fc7e853a4#npm:12.1.5"],\
             ["@testing-library/user-event", "virtual:ae88d71f4cad5af06985b71f0fe07b65cf76d28a4ea59e385242a29ce9ca7ead300cdbae9ba7a156eef127a963240257e81b442f6d8bbe8bd71f3a4fc7e853a4#npm:13.5.0"],\
             ["bootstrap", "virtual:ae88d71f4cad5af06985b71f0fe07b65cf76d28a4ea59e385242a29ce9ca7ead300cdbae9ba7a156eef127a963240257e81b442f6d8bbe8bd71f3a4fc7e853a4#npm:5.2.3"],\
+            ["bootstrap-icons", "npm:1.10.3"],\
             ["eslint-config-react", "npm:1.1.7"],\
             ["eslint-config-react-app", "virtual:ae88d71f4cad5af06985b71f0fe07b65cf76d28a4ea59e385242a29ce9ca7ead300cdbae9ba7a156eef127a963240257e81b442f6d8bbe8bd71f3a4fc7e853a4#npm:7.0.1"],\
             ["file-saver", "npm:2.0.5"],\

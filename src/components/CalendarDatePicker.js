@@ -21,6 +21,11 @@ function CalendarDatePicker() {
 
   return (
     <div>
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          Shift Allowances
+        </a>
+      </nav>
       <div className="calender-and-input">
         <InformationInput
           getInfo={getInfo}

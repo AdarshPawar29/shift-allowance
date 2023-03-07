@@ -20,8 +20,8 @@ const ExportExcel = ({ excelData, fileName, info }) => {
         "No. of Days": "1",
         "For Date (dd/mm/yyyy)": `${element.date}/${element.month}/${element.year}`,
         Day: `${getDayOfWeek(element.date, element.month, element.year)}`,
-        "From Time": "02:00 PM",
-        "To Time": "11:00 PM",
+        "From Time": `${info.fromTime ? info.fromTime : "02:00"}`,
+        "To Time": `${info.toTime ? info.toTime : "11:00"}`,
         "Allowance Amount (INR)": `${info.allowanceAmount}`,
       });
     });

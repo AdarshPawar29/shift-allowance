@@ -17,15 +17,16 @@ export function getWeekdaysInMonth() {
 
   if (!isNaN(selectedDate.getTime())) {
     if (selectedDate.getDate() < 15) {
+      //when user select date
       const month = selectedDate.getMonth() - 1;
       const year = selectedDate.getFullYear();
       let days = daysInMonth(month, year);
-      for (let i = 15; i <= days; i++) {
+      for (let i = 16; i <= days; i++) {
         if (isWeekday(year, month, i)) {
           weekdays.push({ date: i, month: month + 1, year });
         }
       }
-      for (let i = 1; i <= 16; i++) {
+      for (let i = 1; i <= 15; i++) {
         if (isWeekday(year, month + 1, i)) {
           weekdays.push({ date: i, month: month + 1 + 1, year });
         }
@@ -35,28 +36,29 @@ export function getWeekdaysInMonth() {
       let month = selectedDate.getMonth();
       const year = selectedDate.getFullYear();
       let days = daysInMonth(month, year);
-      for (let i = 15; i <= days; i++) {
+      for (let i = 16; i <= days; i++) {
         if (isWeekday(year, month, i)) {
           weekdays.push({ date: i, month: month + 1, year });
         }
       }
-      month = d.getMonth() + 1;
-      for (let i = 1; i <= 16; i++) {
+      month = selectedDate.getMonth() + 1;
+      for (let i = 1; i <= 15; i++) {
         if (isWeekday(year, month, i)) {
           weekdays.push({ date: i, month: month + 1, year });
         }
       }
     }
   } else {
+    //when field is empty
     const month = d.getMonth() - 1;
     const year = d.getFullYear();
     let days = daysInMonth(month, year);
-    for (let i = 15; i <= days; i++) {
+    for (let i = 16; i <= days; i++) {
       if (isWeekday(year, month, i)) {
         weekdays.push({ date: i, month: month + 1, year });
       }
     }
-    for (let i = 1; i <= 16; i++) {
+    for (let i = 1; i <= 15; i++) {
       if (isWeekday(year, month + 1, i)) {
         weekdays.push({ date: i, month: month + 1 + 1, year });
       }

@@ -1,7 +1,7 @@
 import React from "react";
 import ExcelJS from "exceljs";
 import { saveAs } from "file-saver";
-import { getDayOfWeek, monthNames } from "../src/utility/findWeekdayDates";
+import { getDayOfWeek, monthNames } from "../utility/findWeekdayDates";
 
 const ExcelDownload = ({ excelData, fileName, info }) => {
   const workbook = new ExcelJS.Workbook();
@@ -114,7 +114,7 @@ const ExcelDownload = ({ excelData, fileName, info }) => {
     });
     //Save the excel
     workbook.xlsx.writeBuffer().then((buffer) => {
-      saveAs(new Blob([buffer]), "results.xlsx");
+      saveAs(new Blob([buffer]), `${fileName}.xlsx`);
     });
   }
   return (

@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import ExportExcel from "./ExcelExport";
 import { getDayOfWeek, monthNames } from "../utility/findWeekdayDates";
+import ExcelDownload from "../ExcelDownload";
 function SelectedDates({ weekDays, removeDateFromTable, info }) {
   return (
     <div className="container-table">
@@ -56,7 +57,12 @@ function SelectedDates({ weekDays, removeDateFromTable, info }) {
             ))}
         </tbody>
       </table>
-      <ExportExcel
+      {/* <ExportExcel
+        excelData={weekDays}
+        fileName={"shift allowances"}
+        info={info}
+      /> */}
+      <ExcelDownload
         excelData={weekDays}
         fileName={"shift allowances"}
         info={info}

@@ -21,7 +21,7 @@ const ExcelDownload = ({ excelData, fileName, info }) => {
       "To Time",
       "Allowance Amount (INR)",
     ];
-    const sheet = workbook.addWorksheet("My Sheet");
+    const sheet = workbook.addWorksheet("Main");
 
     // Set up your header text
     const headerText = "BconeHr&E2E";

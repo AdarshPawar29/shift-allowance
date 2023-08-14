@@ -3,23 +3,3 @@
   font-size: calc(1px + 2vmin);
   color: gray;
 }
-
-.App-header {
-  align-items: center;
-  color: white;
-  margin: 20px;
-}
-.calender-and-input {
-  display: flex;
-  justify-content: space-around;
-}
-.inputs-submit-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.container-table {
-  min-width: 100vh;
-}

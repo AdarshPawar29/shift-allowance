@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import Box from "@mui/material/Box";
+import { TextField, Button } from "@mui/material";
+import ExcelDownload from "./ExcelDownload";
 
-import { Card, Button } from "react-bootstrap";
-function InformationInput({ getInfo, handleSubmit }) {
+function InformationInput({ weekDays, getInfo, handleSubmit, info }) {
   const [value, setValue] = useState(() => {
     // getting stored value
     const saved = localStorage.getItem("info");
@@ -17,109 +19,113 @@ function InformationInput({ getInfo, handleSubmit }) {
     getInfo(value);
   };
   return (
-    <div className="inputs-submit-btn">
-      <Card style={{ width: "40rem" }} className="card border-dark mb-3">
-        <h5 class="card-header">Enter Information</h5>
-        <Card.Body>
-          <label>What's your name? </label>{" "}
-          <div class="input-group mb-3">
-            <input
-              onChange={(e) => {
-                setValue({ ...value, name: e.target.value });
-              }}
-              value={value.name}
-              placeholder={"Full Name"}
-            />
-          </div>
-          <label>What's your email? </label>{" "}
-          <div class="input-group mb-3">
-            <input
-              onChange={(e) => {
-                setValue({
-                  ...value,
-                  email: `${e.target.value}@bristlecone.com`,
-                });
-              }}
-              value={value.email ? value.email.split("@")[0] : value.email}
-              placeholder="Email Address"
-            />
-            <div class="input-group-append">
-              <span class="input-group-text" id="basic-addon2">
-                @bristlecone.com
-              </span>
-            </div>
-          </div>
-          <label>What's your project name? </label>{" "}
-          <div class="input-group mb-3">
-            <input
-              onChange={(e) => {
-                setValue({ ...value, projectName: e.target.value });
-              }}
-              value={value.projectName}
-            />
-          </div>
-          <label>What's your project code? </label>{" "}
-          <div class="input-group mb-3">
-            <input
-              onChange={(e) => {
-                setValue({ ...value, projectCode: e.target.value });
-              }}
-              value={value.projectCode}
-            />
-          </div>
-          <label>What's your Allowance Amount (INR)? </label>{" "}
-          <div class="input-group mb-3">
-            <input
-              onChange={(e) => {
-                setValue({ ...value, allowanceAmount: e.target.value });
-              }}
-              value={value.allowanceAmount}
-            />
-          </div>
-          <label>From Time (02:00 PM default) </label>{" "}
-          <div class="input-group mb-3">
-            <input
-              onChange={(e) => {
-                setValue({ ...value, fromTime: e.target.value });
-              }}
-              type={"time"}
-              value={value.fromTime}
-            />
-          </div>
-          <label>To Time (11:00 PM default)</label>{" "}
-          <div class="input-group mb-3">
-            <input
-              onChange={(e) => {
-                setValue({ ...value, toTime: e.target.value });
-              }}
-              type={"time"}
-              value={value.toTime}
-            />
-          </div>
-          <label>
-            Start Date (Optional, it will take last months 15 to this month 16
-            by default){" "}
-          </label>{" "}
-          <div class="input-group mb-3">
-            <input
-              id="startDate"
-              onChange={(e) => {
-                setValue({ ...value, startDate: e.target.value });
-              }}
-              type={"date"}
-              value={value.startDate}
-            />
-          </div>
-        </Card.Body>
-      </Card>
-      <Button
-        variant="outline-primary"
-        className="mt-2"
-        onClick={handleSubmitBtn}
-      >
+    <Box
+      component="form"
+      sx={{
+        "& .MuiTextField-root": { m: 1, width: "25ch" },
+      }}
+    >
+      <div>
+        <TextField
+          required
+          onChange={(e) => {
+            setValue({ ...value, name: e.target.value });
+          }}
+          value={value.name}
+          id="outlined-required"
+          label="What's your name?"
+          size="small"
+        />
+        <TextField
+          required
+          onChange={(e) => {
+            setValue({
+              ...value,
+              email: `${e.target.value}@bristlecone.com`,
+            });
+          }}
+          value={value.email ? value.email.split("@")[0] : value.email}
+          placeholder="Email Address"
+          id="outlined-required"
+          label="What's your email?"
+          size="small"
+          helperText="@bristlecone.com"
+        />
+        <TextField
+          required
+          onChange={(e) => {
+            setValue({ ...value, projectName: e.target.value });
+          }}
+          value={value.projectName}
+          id="outlined-required"
+          label="What's your project name?"
+          size="small"
+        />
+        <TextField
+          required
+          onChange={(e) => {
+            setValue({ ...value, projectCode: e.target.value });
+          }}
+          value={value.projectCode}
+          id="outlined-required"
+          label="What's your project code?"
+          size="small"
+        />
+        <TextField
+          required
+          onChange={(e) => {
+            setValue({ ...value, allowanceAmount: e.target.value });
+          }}
+          value={value.allowanceAmount}
+          id="outlined-required"
+          label="What's your Allowance Amount (INR)?"
+          size="small"
+        />
+        <TextField
+          onChange={(e) => {
+            setValue({ ...value, fromTime: e.target.value });
+          }}
+          type={"time"}
+          id="outlined-input"
+          label="From Time"
+          size="small"
+          value={value.fromTime}
+          defaultValue={"02:00"}
+          helperText="(02:00 PM default)"
+        />
+        <TextField
+          onChange={(e) => {
+            setValue({ ...value, toTime: e.target.value });
+          }}
+          type={"time"}
+          value={value.toTime}
+          id="outlined-input"
+          label="To Time"
+          size="small"
+          defaultValue={"11:00"}
+          helperText="(11:00 PM default)"
+        />
+        <TextField
+          id="startDate"
+          onChange={(e) => {
+            setValue({ ...value, startDate: e.target.value });
+          }}
+          type={"date"}
+          value={value.startDate}
+          label="Start Date"
+          size="small"
+          helperText="(Optional, it will take last months 15 to this month 16 by default)"
+        />
+      </div>
+      <Button variant="outlined" onClick={handleSubmitBtn}>
         Click here to submit
       </Button>
-    </div>
+      <ExcelDownload
+        excelData={weekDays}
+        fileName={"shift allowances"}
+        info={info}
+      />
+    </Box>
   );
 }
 

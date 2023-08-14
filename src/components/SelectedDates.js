@@ -1,73 +1,71 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import ExportExcel from "./ExcelExport";
 import { getDayOfWeek, monthNames } from "../utility/findWeekdayDates";
-import ExcelDownload from "./ExcelDownload";
+
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+
 function SelectedDates({ weekDays, removeDateFromTable, info }) {
   return (
-    <div className="container-table">
-      <h3 className="p-3 text-center">List of days</h3>
-      <table className="table table-striped table-bordered">
-        <thead>
-          <tr>
-            <th>Employee Email</th>
-            <th>Employee Name</th>
-            <th>Project Code</th>
-            <th>Project Name</th>
-            <th>Allowance Type</th>
-            <th>Tmp for notes (validation)</th>
-            <th>Frequency</th>
-            <th>No. of Days</th>
-            <th>For Date (dd/mm/yyyy)</th>
-            <th>Day</th>
-            <th>From Time</th>
-            <th>To Time</th>
-            <th>Allowance Amount (INR)</th>
-            <th>Remove Date</th>
-          </tr>
-        </thead>
-        <tbody>
+    <TableContainer component={Paper}>
+      <Table aria-label="simple table" size="small" stickyHeader={true}>
+        <TableHead>
+          <TableRow>
+            <TableCell>Employee Email</TableCell>
+            <TableCell>Employee Name</TableCell>
+            <TableCell>Project Code</TableCell>
+            <TableCell>Project Name</TableCell>
+            <TableCell>Allowance Type</TableCell>
+            <TableCell>Tmp for notes (validation)</TableCell>
+            <TableCell>Frequency</TableCell>
+            <TableCell>No. of Days</TableCell>
+            <TableCell>For Date (dd/mm/yyyy)</TableCell>
+            <TableCell>Day</TableCell>
+            <TableCell>From Time</TableCell>
+            <TableCell>To Time</TableCell>
+            <TableCell>Allowance Amount (INR)</TableCell>
+            <TableCell>Remove Date</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
           {weekDays &&
             weekDays.map((date) => (
-              <tr key={date.date}>
-                <td>{info.email}</td>
-                <td>{info.name}</td>
-                <td>{info.projectCode}</td>
-                <td>{info.projectName}</td>
-                <td>Shift Allowance</td>
-                <td>{monthNames[date.month - 1]} allowances</td>
-                <td>Daily</td>
-                <td>1</td>
-                <td>
+              <TableRow key={date.date}>
+                <TableCell>{info.email}</TableCell>
+                <TableCell>{info.name}</TableCell>
+                <TableCell>{info.projectCode}</TableCell>
+                <TableCell>{info.projectName}</TableCell>
+                <TableCell>Shift Allowance</TableCell>
+                <TableCell>{monthNames[date.month - 1]} allowances</TableCell>
+                <TableCell>Daily</TableCell>
+                <TableCell>1</TableCell>
+                <TableCell>
                   {date.date}/{date.month}/{date.year}
-                </td>
-                <td>{getDayOfWeek(date.date, date.month, date.year)}</td>
-                <td>{info.fromTime}</td>
-                <td>{info.toTime}</td>
-                <td>{info.allowanceAmount}</td>
-                <td>
+                </TableCell>
+                <TableCell>
+                  {getDayOfWeek(date.date, date.month, date.year)}
+                </TableCell>
+                <TableCell>{info.fromTime}</TableCell>
+                <TableCell>{info.toTime}</TableCell>
+                <TableCell>{info.allowanceAmount}</TableCell>
+                <TableCell>
                   <Button
                     onClick={() => removeDateFromTable(date.date)}
                     variant="outline-danger"
                   >
                     Remove
                   </Button>
-                </td>
-              </tr>
+                </TableCell>
+              </TableRow>
             ))}
-        </tbody>
-      </table>
-      {/* <ExportExcel
-        excelData={weekDays}
-        fileName={"shift allowances"}
-        info={info}
-      /> */}
-      <ExcelDownload
-        excelData={weekDays}
-        fileName={"shift allowances"}
-        info={info}
-      />
-    </div>
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 }
 

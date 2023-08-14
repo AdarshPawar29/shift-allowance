@@ -1,6 +1,7 @@
 import React from "react";
 import ExcelJS from "exceljs";
 import { saveAs } from "file-saver";
+import { Button } from "@mui/material";
 import { getDayOfWeek, monthNames } from "../utility/findWeekdayDates";
 
 const ExcelDownload = ({ excelData, fileName, info }) => {
@@ -119,7 +120,16 @@ const ExcelDownload = ({ excelData, fileName, info }) => {
   }
   return (
     <>
-      <button onClick={(e) => exportToExcel()}>Export to Excel</button>
+      {info && (
+        <Button
+          variant="outlined"
+          color="success"
+          className="mt-2"
+          onClick={(e) => exportToExcel()}
+        >
+          Download Excel
+        </Button>
+      )}
     </>
   );
 };
